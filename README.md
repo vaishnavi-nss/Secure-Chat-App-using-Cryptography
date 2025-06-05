@@ -37,8 +37,8 @@ A secure, end-to-end encrypted web-based chat application built with **HTML, CSS
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/secure-chat-app.git
-   cd secure-chat-app
+   git clone [https://github.com/your-username/secure-chat-app.git](https://github.com/vaishnavi-nss/Secure-Chat-App-using-Cryptography)
+   cd Secure-Chat-App-using-Cryptography
    ```
 
 2. **Run the server**
