@@ -1,86 +1,108 @@
-# Secure-Chat-App-using-Cryptography
+🔐 END-TO-END ENCRYPTED REAL-TIME CHAT SYSTEM (AES + DIFFIE-HELLMAN)
 
-# 🔐 Secure Chat App Using AES & Diffie-Hellman
+A secure, real-time chat application designed with a focus on end-to-end encryption, secure key exchange, and network-level validation. This system implements cryptographic protocols from scratch and verifies message confidentiality using packet inspection tools.
 
-A secure, end-to-end encrypted web-based chat application built with **HTML, CSS, JavaScript** for the frontend and **Python (socket programming)** on the backend. This app ensures secure messaging using **AES symmetric encryption** and **Diffie-Hellman key exchange**, with additional security validation using **Wireshark** and a custom-built Python packet sniffer.
+🔍 Overview
 
-## 🚀 Features
+This project demonstrates how secure communication systems are built by combining cryptography, networking, and real-time messaging.
 
-* 🔐 **End-to-End Encryption** using:
+Key Objectives:
 
-  * **Diffie-Hellman** for secure key exchange.
-  * **AES** (Advanced Encryption Standard) for message encryption.
-* 🌐 **Web-based Interface**: Clean, responsive chat UI using HTML/CSS/JS.
-* 🔄 **Real-time Communication** via sockets.
-* 🧪 **Network Security Validation**:
+1. Enable secure peer-to-peer communication
+2. Ensure confidentiality of messages over insecure networks
+3. Validate encryption using real network traffic analysis
 
-  * Used **Wireshark** and custom **Python packet sniffer** to inspect and verify encrypted traffic.
-* 🗃️ **Chat History**: Optionally store encrypted messages in a local file or JSON.
+🧠 System Design
+1. 🔑 Encryption Flow
+2. Clients establish a shared secret using Diffie-Hellman key exchange
+3. A symmetric session key is derived
+4. Messages are encrypted using AES before transmission
+5. Encrypted data is sent over sockets
+6. Receiver decrypts using the shared key
 
-## 🛠️ Tech Stack
+⚙️ Tech Stack
 
-| Component        | Technology                         |
-| ---------------- | ---------------------------------- |
-| Frontend         | HTML, CSS, JavaScript              |
-| Backend          | Python (socket programming)        |
-| Encryption       | AES (PyCryptodome), Diffie-Hellman |
-| Security Testing | Wireshark, Python sniffer          |
+Layer	Technology | 
+Frontend	HTML, CSS, JavaScript  | 
+Backend	Python (Socket Programming) | 
+Encryption	AES (PyCryptodome), Diffie-Hellman | 
+Networking	TCP Sockets | 
+Security	Wireshark, Custom Packet Sniffer
 
-## 🖼️ UI Screens
+🚀 Features
+1. 🔐 End-to-End Encryption
+2. Diffie-Hellman for secure key exchange
+3. AES for fast and secure message encryption
+4. ⚡ Real-Time Messaging
+5. Low-latency communication using TCP sockets
+6. 🌐 Web-Based Interface
+7. Lightweight and responsive chat UI
+8. 🧪 Security Validation
+9. Verified encrypted traffic using Wireshark
+10. Built a custom Python packet sniffer to inspect raw packets
+11. 🗃️ Encrypted Message Storage
+12. Optional local storage of encrypted chat history
 
-* Dual-panel chat interface
-* Message bubbles for each user
-* Live, encrypted messaging in a single-page layout
+🧪 Security Validation
 
-## 📦 How to Run
+To ensure message confidentiality:
 
-1. **Clone the repository**
+1. Network traffic was captured using Wireshark
+2. A custom packet sniffer was implemented to inspect transmitted data
+3. Verified that no plaintext messages are exposed over the network
 
-   ```bash
-   git clone [https://github.com/your-username/secure-chat-app.git](https://github.com/vaishnavi-nss/Secure-Chat-App-using-Cryptography)
-   cd Secure-Chat-App-using-Cryptography
-   ```
+📊 Key Engineering Decisions
+1. AES over RSA for message encryption: Faster and more suitable for real-time communication
+2. Diffie-Hellman for key exchange: Eliminates need to transmit encryption keys directly
+3. Socket-based communication: Provides full control over message transmission
 
-2. **Run the server**
+⚠️ Limitations
+1. No authentication (vulnerable to MITM attacks)
+2. Single-room chat (no group communication)
+3. Not deployed (local environment only)
+   
+🚧 Future Improvements
 
-   ```bash
-   python server.py
-   ```
+1. Add user authentication and identity verification
+2. Implement group chat with secure key distribution
+3. Introduce TLS layer for additional transport security
+4. Deploy using cloud platforms for real-world usage
 
-3. **Open the frontend**
-   Open `index.html` in your browser or host it using a local server like Live Server (VS Code extension).
 
-4. **Open client**
-   Run `client.py` or open another browser tab for a second user.
+📁 Project Structure
 
-## 🔍 Security Tools Used
-
-* **Wireshark**: Verified that messages were encrypted on the wire.
-* **Python Packet Sniffer**: Custom script to monitor raw socket traffic and confirm encryption.
-
-## 📁 Project Structure
-
-```
 secure-chat-app/
+
 ├── frontend/
+
 │   ├── index.html
+
 │   ├── style.css
+
 │   └── script.js
-├── server.py
-├── client.py
+
+├── server.py                 # Handles socket connections
+
+├── client.py                 # Client-side communication
+
 ├── encryption/
-│   ├── aes.py
-│   └── diffie_hellman.py
+
+│   ├── aes.py                # AES encryption logic
+
+│   └── diffie_hellman.py     # Key exchange implementation
+
 ├── utils/
-│   └── packet_sniffer.py
+
+│   └── packet_sniffer.py     # Network packet inspection
+
 └── README.md
-```
 
-## ✅ Future Enhancements
-
-* User authentication
-* Group chat support
-* Message delivery status
-* Deployment to a hosting service (e.g., Render, Vercel, or Netlify)
-
----
+🖥️ How to Run
+1. Clone the Repository
+git clone https://github.com/vaishnavi-nss/Secure-Chat-App-using-Cryptography.git
+cd Secure-Chat-App-using-Cryptography
+2. Start the Server
+python server.py
+3. Launch the Client
+Open index.html in a browser (or use a local server)
+Run client.py or open another instance for a second user
